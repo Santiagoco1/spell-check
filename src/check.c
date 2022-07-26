@@ -182,20 +182,30 @@ void find_suggestions(Word *word, HashTable *dictionary) {
   free_hashtable(mods_table);
 }
 
+void check_word(char *str, int line, HashTable *dictionary) {
+  if(search_hashtable(str, dictionary) == 0) {
+    printf("Linea %d, '%s' no esta en el diccionario.\nQuizas quiso decir: ", line, str);
+    Word *word = create_word(str);
+    find_suggestions(word, dictionary);
+  }
+}
+
 void check_text(char *path, HashTable *dictionary) {
 
-  char aux[35];
+  int line = 1, i = 0;
+  char c, str[35];
   FILE *file = fopen(path, "r");
 
-  while(fscanf(file, "%[^,.\n ]%*[,.\n ]", aux) == 1) {
-
-    Word *word = create_word(aux);
-    if(search_hashtable(word -> str, dictionary) == 0) {
-      printf("Linea N, '%s' no esta en el diccionario.\nQuizas quiso decir: ", word -> str);
-      find_suggestions(word, dictionary);
+  while(fscanf(file, "%c%*[:;,.?!]", &c) == 1) {
+    if(c == ' ' || c == '\n') {
+      str[i] = '\0';
+      i = 0;
+      check_word(str, line, dictionary);
+      str[i] = '\0';
+      if(c == '\n') line++;
     } else {
-      free(word -> str);
-      free(word);
+      str[i] = c;
+      i++;
     }
   }
   fclose(file);

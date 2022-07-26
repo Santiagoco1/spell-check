@@ -7,6 +7,7 @@
     "word.h": "c",
     "dict.h": "c",
     "check.h": "c",
-    "list.h": "c"
+    "list.h": "c",
+    "random": "c"
   }
 }
