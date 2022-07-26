@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "*.module": "php",
+    "stdlib.h": "c",
+    "hash.h": "c",
+    "stdio.h": "c",
+    "word.h": "c",
+    "dict.h": "c",
+    "check.h": "c",
+    "list.h": "c"
+  }
+}
