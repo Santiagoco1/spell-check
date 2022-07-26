@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 26 09:55:21 2022
+# Make data base, printed on Tue Jul 26 10:07:57 2022
 
 # Variables
 
@@ -197,7 +197,7 @@ SNAP_REVISION = 102
 # environment
 LC_MONETARY = es_AR.UTF-8
 # makefile
-.DEFAULT_GOAL := spell-check
+.DEFAULT_GOAL := check
 # environment
 XDG_CURRENT_DESKTOP = KDE
 # automatic
@@ -290,9 +290,9 @@ KDE_SESSION_UID = 1000
 
 # Directories
 
-# . (device 2052, inode 12845486): 12 files, no impossibilities.
+# . (device 2052, inode 12845486): 10 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -322,7 +322,7 @@ src/hash.c:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-26 09:54:44.638936416
+#  Last modified 2022-07-26 10:05:15.955964836
 #  File has been updated.
 #  Successfully updated.
 
@@ -332,19 +332,20 @@ src/list.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+time: main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 7):
+	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o time
+	- time ./time files/dictionary.txt files/text.txt
+	- rm time
+
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-spell-check: main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 2):
-	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o spell-check
-	- ./spell-check files/dictionary.txt files/text.txt
 
 # Not a target:
 src/word.c:
@@ -352,11 +353,29 @@ src/word.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+check: main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 2):
+	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o check
+	- ./check files/dictionary.txt files/text.txt
+	- rm check
+
 # Not a target:
 src/dict.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+valgrind: main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 12):
+	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o valgrind
+	- valgrind ./valgrind files/dictionary.txt files/text.txt
+	- rm valgrind
 
 # Not a target:
 src/check.c:
@@ -365,19 +384,19 @@ src/check.c:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=11/1024=1%, Rehash=0, Collisions=0/27=0%
+# Load=13/1024=1%, Rehash=0, Collisions=0/41=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 199 B / avg = 8 B
-# current buf: size = 8162 B / used = 199 B / count = 23 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 23 / storage = 189 B / avg = 8 B
+# current buf: size = 8162 B / used = 189 B / count = 23 / avg = 8 B
 
-# strcache performance: lookups = 29 / hit rate = 20%
+# strcache performance: lookups = 43 / hit rate = 46%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Tue Jul 26 09:55:21 2022
+# Load=23/8192=0%, Rehash=0, Collisions=1/43=2%
+# Finished Make data base on Tue Jul 26 10:07:57 2022
 
  

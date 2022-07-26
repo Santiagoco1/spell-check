@@ -1,6 +1,7 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/santiagoco/Documents/spell-check'
-gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o spell-check
-./spell-check files/dictionary.txt files/text.txt
+gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o check
+./check files/dictionary.txt files/text.txt
+rm check
 make: Leaving directory '/home/santiagoco/Documents/spell-check'
  
