@@ -1,8 +1,8 @@
-Lorem ipsum dolor sit amet consectetur adipiscing elit
-Nullam sit amet velit faucibus ultrices diam at, laoreet neque
-Donec quis nunc eu augue sodales rutrum
-In porta sollicitudin mi sed eleifend libero placerat eget
-Suspendisse mollis vestibulum dictum
-Phasellus gravida tortor non placerat faucibus
-In hac habitasse platea dictumst
-Mauris tristique lorem nec erat suscipit faucibus
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Nullam sit amet velit faucibus, ultrices diam at, laoreet neque.
+Donec quis nunc eu augue sodales rutrum.
+In porta sollicitudin mi, sed eleifend libero placerat eget.
+Suspendisse mollis vestibulum dictum.
+Phasellus gravida tortor non placerat faucibus.
+In hac habitasse platea dictumst.
+Mauris tristique lorem nec erat suscipit faucibus.

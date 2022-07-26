@@ -187,7 +187,7 @@ void check_text(char *path, HashTable *dictionary) {
   char aux[35];
   FILE *file = fopen(path, "r");
 
-  while(fscanf(file, "%s", aux) == 1) {
+  while(fscanf(file, "%[^,.\n ]%*[,.\n ]", aux) == 1) {
 
     Word *word = create_word(aux);
     if(search_hashtable(word -> str, dictionary) == 0) {
