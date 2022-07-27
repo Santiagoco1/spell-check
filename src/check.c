@@ -20,7 +20,7 @@ void insert_char(Word *word, int i, char c, char *aux) {
   aux[j] = '\0';
 }
 
-void fifht_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
+void fifht_technique(Word *word, Glist *mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
   
   char *changed_word = malloc(sizeof(char) * word -> len + 2);
 
@@ -41,7 +41,7 @@ void fifht_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTa
   free(changed_word);
 }
 
-void fourth_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
+void fourth_technique(Word *word, Glist *mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
 
   char *changed_word = word -> str;
 
@@ -78,7 +78,7 @@ void eliminate_char(Word *word, int i, char *aux) {
   aux[j] = '\0';
 }
 
-void third_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
+void third_technique(Word *word, Glist *mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
   
   char changed_word[word -> len];
 
@@ -96,7 +96,7 @@ void third_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTa
   }
 }
 
-void second_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTable *mods_table, char**suggestions, int *count, int *steps) {
+void second_technique(Word *word, Glist *mods_list, HashTable *dictionary, HashTable *mods_table, char**suggestions, int *count, int *steps) {
   
   char *changed_word = word -> str;
 
@@ -136,7 +136,7 @@ void split_str(Word *word, int i, char *word1, char *word2) {
   word2[b] = '\0';
 }
 
-void first_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
+void first_technique(Word *word, Glist *mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
   
   char first_splited_word[word -> len + 1];
   char second_splited_word[word -> len + 1];
@@ -154,20 +154,20 @@ void first_technique(Word *word, Node **mods_list, HashTable *dictionary, HashTa
   }
 }
 
-void apply_techniques(Word *mods_list, Node **list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
+void apply_techniques(Word *word, Glist *mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
 
-  void (*techniques[5])(Word*, Node**, HashTable*, HashTable*, char**, int*, int*) = {first_technique, third_technique, second_technique, fourth_technique, fifht_technique};
+  void (*techniques[5])(Word*, Glist*, HashTable*, HashTable*, char**, int*, int*) = {first_technique, third_technique, second_technique, fourth_technique, fifht_technique};
   for(int i = 0; (*count) < 5 && i < 5; i++) {
-    (*techniques[i])(mods_list, list, dictionary, mods_table, suggestions, count, steps);
+    (*techniques[i])(word, mods_list, dictionary, mods_table, suggestions, count, steps);
   }
 }
 
 void _find_suggestions(Results *mods_list, HashTable *dictionary, HashTable *mods_table, char **suggestions, int *count, int *steps) {
-  
+
   if((*steps) > 0 && (*count) < 5) {
-    if(mods_list -> actual) {
-      apply_techniques(mods_list -> actual -> data, &(mods_list -> next), dictionary, mods_table, suggestions, count, steps);
-      mods_list -> actual = pass_node(mods_list -> actual);
+    if(mods_list->actual->first) {
+      apply_techniques(mods_list->actual->first->data, mods_list->next, dictionary, mods_table, suggestions, count, steps);
+      mods_list->actual->first = pass_node(mods_list->actual->first);
       _find_suggestions(mods_list, dictionary, mods_table, suggestions, count, steps);
     } else {
       (*steps)--;
@@ -178,6 +178,7 @@ void _find_suggestions(Results *mods_list, HashTable *dictionary, HashTable *mod
 }
 
 char **find_suggestions(char *str, int *count, HashTable *dictionary) {
+
   Word *word = create_word(str);
   int steps = AMOUNT_STEPS;
   char **suggestions = malloc(sizeof(char*) * AMOUNT_SUGGESTIONS);
@@ -186,19 +187,18 @@ char **find_suggestions(char *str, int *count, HashTable *dictionary) {
   Results *mods_list = initialize_results();
   HashTable *mods_table = initialize_hash_table(100000);
   add_hashtable(mods_table, word);
-  mods_list -> actual = add_node(mods_list -> actual, word);
-  
+  mods_list->actual = glist_add_last(mods_list->actual, word);
+
   _find_suggestions(mods_list, dictionary, mods_table, suggestions, count, &steps);
   
-  free_list(mods_list -> actual);
-  free_list(mods_list -> next);
-  free(mods_list);
+  results_destroy(mods_list);
   free_hashtable(mods_table);
 
   return suggestions;
 }
 
 Corr *check_word(char *str, int line, HashTable *dictionary) { 
+
   Corr *correction = NULL;
   if(!search_hashtable(str, dictionary)) {
     int count = 0;

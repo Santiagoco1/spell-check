@@ -16,7 +16,7 @@ void add_hashtable (HashTable *dictionary, Word *word);
 
 int _search_and_add(Node *list, Word *word);
 
-void search_and_add(HashTable *words_table, Node **words, Word *word);
+void search_and_add(HashTable *words_table, Glist *words, Word *word);
 
 int search_hashtable(char *word, HashTable *dictionary);
 
