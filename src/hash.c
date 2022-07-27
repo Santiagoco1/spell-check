@@ -39,11 +39,12 @@ int _search_and_add(Node *list, Word *word) {
   return 1;
 }
 
-void search_and_add(HashTable *words_table, Node **words, Word *word) {
+void search_and_add(HashTable *words_table, Glist *words, Word *word) {
+
   int hash = hash_function(word -> str, words_table -> len);
   if(_search_and_add(words_table -> list[hash], word)) {
     words_table -> list[hash] = add_node(words_table->list[hash], word);
-    (*words) = add_node((*words), word);
+    words = glist_add_last(words, word);
   } else {
     free(word -> str);
     free(word);

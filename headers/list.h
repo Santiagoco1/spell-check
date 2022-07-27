@@ -8,16 +8,14 @@ typedef struct _Node {
   struct _Node *next;
 } Node;
 
-typedef Node *Slist;
-
 typedef struct _Glist {
   Node *first;
   Node *last;
 } Glist;
 
 typedef struct _Results {
-  Node *actual;
-  Node *next;
+  Glist *actual;
+  Glist *next;
 } Results;
 
 typedef int (*compFunction)(void *data1, void *data2);
@@ -40,6 +38,10 @@ Node *node_create(void *data);
 Glist *create_glist();
 
 Glist *glist_add_last(Glist *glist, void *data);
+
+void results_destroy(Results *results);
+
+void glist_destroy(Glist *list);
 
 void free_list(Node *list);
 
