@@ -1,23 +1,46 @@
+#ifndef __LIST_H__
+#define __LIST_H__
+
 #include "word.h"
 
 typedef struct _Node {
-  Word *word;
+  void *data;
   struct _Node *next;
 } Node;
 
-typedef struct _List {
+typedef Node *Slist;
+
+typedef struct _Glist {
+  Node *first;
+  Node *last;
+} Glist;
+
+typedef struct _Results {
   Node *actual;
   Node *next;
-} List;
+} Results;
 
-Node *add_node(Node *list, Word *word);
+typedef int (*compFunction)(void *data1, void *data2);
+typedef void (*destFunction)(void *data);
 
-int search_list(char word[], Node *list);
+Node *add_node(Node *list, void *data);
 
-List *initialize_list();
+int search_list(void *data, Node *list, compFunction comp);
 
-void change_list(List *words);
+Results *initialize_results();
+
+void change_list(Results *words);
 
 Node *pass_node(Node *node);
 
+Node *pass_destroy_node(Node *node, destFunction destroy);
+
+Node *node_create(void *data);
+
+Glist *create_glist();
+
+Glist *glist_add_last(Glist *glist, void *data);
+
 void free_list(Node *list);
+
+#endif

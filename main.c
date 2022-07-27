@@ -2,13 +2,7 @@
 #include <stdlib.h>
 #include "headers/dict.h"
 #include "headers/check.h"
-
-void show_list(Node *list) {
-  while(list) {
-    printf("%s\n", list->word->str);
-    list = list->next;
-  }
-}
+#include "headers/print.h"
 
 int main(int argc, char **argv ) {
   if(argc == 3) {
@@ -19,9 +13,11 @@ int main(int argc, char **argv ) {
     HashTable *dictionary = create_dictionary(words, amount);
     free(words);
 
-    check_text(argv[2], dictionary);
-
+    Glist *corrections = check_text(argv[2], dictionary);
     free_hashtable(dictionary);
+
+    print_text(corrections, argv[2]);
+    free(corrections);
   }
   return 0;
 }
