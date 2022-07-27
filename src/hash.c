@@ -33,7 +33,7 @@ void add_hashtable (HashTable *dictionary, Word *word) {
 
 int _search_and_add(Node *list, Word *word) {
   while(list) {
-    if(strcmp(list -> word -> str, word -> str) == 0) return 0;
+    if(comp_word(word -> str, list -> data) == 0) return 0;
     list = list -> next;
   }
   return 1;
@@ -50,10 +50,10 @@ void search_and_add(HashTable *words_table, Node **words, Word *word) {
   }
 }
 
-int search_hashtable(char word[], HashTable *dictionary) {
+int search_hashtable(char *word, HashTable *dictionary) {
   
   int hash = hash_function(word, dictionary->len);
-  return search_list(word, dictionary->list[hash]);
+  return search_list(word, dictionary->list[hash], comp_word);
 }
 
 void free_hashtable(HashTable *hashTable) {
@@ -62,8 +62,7 @@ void free_hashtable(HashTable *hashTable) {
     while(list) {
       Node *node = list;
       list = list -> next;
-      free(node -> word -> str);
-      free(node -> word);
+      free_word(node -> data);
       free(node);
     }
     free(list);

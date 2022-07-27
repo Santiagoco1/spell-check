@@ -8,6 +8,7 @@
     "dict.h": "c",
     "check.h": "c",
     "list.h": "c",
-    "random": "c"
+    "random": "c",
+    "type_traits": "cpp"
   }
 }

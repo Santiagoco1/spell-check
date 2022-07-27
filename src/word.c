@@ -3,7 +3,7 @@
 #include <string.h>
 #include "../headers/word.h"
 
-Word *create_word(char str[]) {
+Word *create_word(char *str) {
 
   int length = strlen(str);
   Word *word = malloc(sizeof(Word));
@@ -17,4 +17,13 @@ Word *create_word(char str[]) {
   word -> len = length;
 
   return word;
+}
+
+int comp_word(void *string, void *word) {
+  return strcmp((char*)string, ((Word*)word) -> str) == 0;
+}
+
+void free_word(Word *word) {
+  free(word -> str);
+  free(word);
 }

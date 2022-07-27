@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 26 10:07:57 2022
+# Make data base, printed on Wed Jul 27 15:36:31 2022
 
 # Variables
 
@@ -79,7 +79,7 @@ VSCODE_CWD = /home/santiagoco/Documents/spell-check
 # environment
 PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session3
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/102/usr/share/glib-2.0/schemas
 # default
@@ -97,7 +97,7 @@ GDK_PIXBUF_MODULE_FILE = /home/santiagoco/snap/code/common/.cache/gdk-pixbuf-loa
 # environment
 SNAP = /snap/code/102
 # environment
-WINDOWID = 88080391
+WINDOWID = 12582919
 # environment
 NVM_BIN = /home/santiagoco/.nvm/versions/node/v18.1.0/bin
 # environment
@@ -115,7 +115,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 XDG_SESSION_DESKTOP = KDE
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-E9GX8IRxwQ3W/agent.11894
+SSH_AUTH_SOCK = /tmp/ssh-ZmOs0L7jSj4c/agent.1955
 # automatic
 %F = $(notdir $%)
 # environment
@@ -135,7 +135,7 @@ KDE_SESSION_VERSION = 5
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 11947
+SSH_AGENT_PID = 2000
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = KDE
 # environment
@@ -151,7 +151,7 @@ VSCODE_CODE_CACHE_PATH = /home/santiagoco/.config/Code/CachedData/3b889b090b5ad5
 # environment
 LOGNAME = santiagoco
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
@@ -189,7 +189,7 @@ SNAP_USER_DATA = /home/santiagoco/snap/code/102
 # environment
 SHLVL = 1
 # environment
-XDG_SESSION_ID = 44
+XDG_SESSION_ID = 3
 # environment
 USER = santiagoco
 # environment
@@ -207,7 +207,7 @@ LC_TELEPHONE = es_AR.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/santiagoco/Documents/spell-check/src
+OLDPWD = /home/santiagoco
 # default
 .VARIABLES := 
 # automatic
@@ -227,7 +227,7 @@ MFLAGS = -pqrR
 # environment
 NVM_DIR = /home/santiagoco/.nvm
 # environment
-SHELL_SESSION_ID = ef0edd7712814f90ba434b2d55c53c02
+SHELL_SESSION_ID = 7eba5d7097e54b17adaf3c7d32746a9d
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -263,7 +263,7 @@ SNAP_REEXEC =
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-KONSOLE_DBUS_SERVICE = :1.317
+KONSOLE_DBUS_SERVICE = :1.51
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
@@ -277,7 +277,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 20368
+VSCODE_PID = 3264
  
 # environment
 KDE_SESSION_UID = 1000
@@ -290,7 +290,7 @@ KDE_SESSION_UID = 1000
 
 # Directories
 
-# . (device 2052, inode 12845486): 10 files, no impossibilities.
+# . (device 2052, inode 13642050): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
@@ -299,6 +299,12 @@ KDE_SESSION_UID = 1000
 # No implicit rules.
 
 # Files
+
+# Not a target:
+src/corr.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 all:
@@ -322,7 +328,7 @@ src/hash.c:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-26 10:05:15.955964836
+#  Last modified 2022-07-27 12:22:59.343620825
 #  File has been updated.
 #  Successfully updated.
 
@@ -332,12 +338,12 @@ src/list.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-time: main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c
+time: main.c src/dict.c src/check.c src/print.c src/hash.c src/list.c src/word.c src/corr.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 7):
-	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o time
+	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/print.c src/hash.c src/list.c src/word.c src/corr.c -o time
 	- time ./time files/dictionary.txt files/text.txt
 	- rm time
 
@@ -353,12 +359,12 @@ src/word.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-check: main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c
+check: main.c src/dict.c src/check.c src/print.c src/hash.c src/list.c src/word.c src/corr.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 2):
-	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o check
+	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/print.c src/hash.c src/corr.c src/list.c src/word.c -o check
 	- ./check files/dictionary.txt files/text.txt
 	- rm check
 
@@ -368,12 +374,12 @@ src/dict.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-valgrind: main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c
+valgrind: main.c src/dict.c src/check.c src/print.c src/hash.c src/list.c src/word.c src/corr.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 12):
-	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/hash.c src/list.c src/word.c -o valgrind
+	- gcc -g -std=c99 -Wall -Werror main.c src/dict.c src/check.c src/print.c src/hash.c src/list.c src/word.c src/corr.c -o valgrind
 	- valgrind ./valgrind files/dictionary.txt files/text.txt
 	- rm valgrind
 
@@ -383,20 +389,26 @@ src/check.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+src/print.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/41=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/49=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 189 B / avg = 8 B
-# current buf: size = 8162 B / used = 189 B / count = 23 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 212 B / avg = 8 B
+# current buf: size = 8162 B / used = 212 B / count = 25 / avg = 8 B
 
-# strcache performance: lookups = 43 / hit rate = 46%
+# strcache performance: lookups = 49 / hit rate = 48%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=1/43=2%
-# Finished Make data base on Tue Jul 26 10:07:57 2022
+# Load=25/8192=0%, Rehash=0, Collisions=1/49=2%
+# Finished Make data base on Wed Jul 27 15:36:31 2022
 
  
