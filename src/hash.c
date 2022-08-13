@@ -12,6 +12,7 @@ HashTable *initialize_hash_table(int amount) {
     hash_table->list[i] = NULL;
   }
   hash_table->len = amount;
+  hash_table->lens = NULL;
 
   return hash_table;
 }

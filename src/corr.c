@@ -16,10 +16,12 @@ Corr *create_corr(char *str, int line, int count, char **suggestions) {
 void corr_fprintf(Corr *correction, FILE *f) {
   fprintf(f, "Linea %d, '%s' no esta en el diccionario.\nQuizas quiso decir: ", correction->line, correction->word);
   int i = 0;
-  for(; i < correction->count-1; i++) {
-    fprintf(f, "%s, ", correction->suggs[i]);
-  }
-  fprintf(f, "%s\n\n", correction->suggs[i]);
+  if(correction->suggs) {
+    for(; i < correction->count-1; i++) {
+      fprintf(f, "%s, ", correction->suggs[i]);
+    }
+    fprintf(f, "%s\n\n", correction->suggs[i]);
+  } else fprintf(f, "No se encontraron sugerencias\n\n");
 }
 
 void corr_dest(void *correction) {

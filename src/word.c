@@ -3,24 +3,27 @@
 #include <string.h>
 #include "../headers/word.h"
 
-Word *create_word(char *str) {
+Word *word_create(char *string, int length) {
 
-  int length = strlen(str);
   Word *word = malloc(sizeof(Word));
-  word -> str = malloc(sizeof(char) * length + 1);
+  word->str = malloc(sizeof(char) * length+1);
 
-  for(int i = 0; i < length; i++) {
-    if((int)str[i] < 97) str[i] = (char)((int)str[i] + 32);
-  }
-
-  strcpy(word -> str, str);
-  word -> len = length;
+  strcpy(word->str, string);
+  word->len = length;
 
   return word;
 }
 
 int comp_word(void *string, void *word) {
-  return strcmp((char*)string, ((Word*)word) -> str) == 0;
+  //printf("%s - %ld : %s - %d\n", (char*)string, strlen((char*)string), (char*)((Word*)word)->str,(int)((Word*)word)->len);
+  if(strlen((char*)string) == (int)((Word*)word)->len) {
+    for(int i = 0; i < (int)((Word*)word)->len; i++) {
+      if(((char*)string)[i] != ((Word*)word)->str[i]) return 0;
+    }
+    return 1;
+  }
+  return 0;
+  //return strcmp((char*)string, ((Word*)word) -> str) == 0;
 }
 
 void free_word(Word *word) {

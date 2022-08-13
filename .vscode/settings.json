@@ -9,6 +9,7 @@
     "check.h": "c",
     "list.h": "c",
     "random": "c",
-    "type_traits": "cpp"
+    "type_traits": "cpp",
+    "print.h": "c"
   }
 }

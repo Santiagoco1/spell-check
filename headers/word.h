@@ -6,7 +6,7 @@ typedef struct _Word {
   int len;
 } Word;
 
-Word *create_word(char *str);
+Word *word_create(char *string, int length);
 
 int comp_word(void *string, void *word);
 

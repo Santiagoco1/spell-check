@@ -6,13 +6,14 @@
 typedef struct _HashTable {
   Node **list;
   int len;
+  int *lens;
 } HashTable;
 
 HashTable *initialize_hash_table(int amount);
 
-int hash_function (char *word, int amount);
+int hash_function(char *word, int amount);
 
-void add_hashtable (HashTable *dictionary, Word *word);
+void add_hashtable(HashTable *dictionary, Word *word);
 
 int _search_and_add(Node *list, Word *word);
 
