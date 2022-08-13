@@ -14,7 +14,7 @@ Linea 1, 'consectetur' no esta en el diccionario.
 Quizas quiso decir: conecte-tu, conecte-jur, conecte-mur, conecte-sur, conecte-ter
 
 Linea 1, 'adipiscing' no esta en el diccionario.
-Quizas quiso decir: di-piscina, ad-piscina, ahi-piscina, aji-piscina, ali-piscina
+Quizas quiso decir: di-piscina, ad-piscina, di-piscina, ad-piscina
 
 Linea 1, 'elit' no esta en el diccionario.
 Quizas quiso decir: elite, bit, lia, lid, lie
@@ -38,10 +38,10 @@ Linea 2, 'ultrices' no esta en el diccionario.
 Quizas quiso decir: trices, larices, trices, nutrices, ultimes
 
 Linea 2, 'diam' no esta en el diccionario.
-Quizas quiso decir: dia, dima, dial, dias, diay
+Quizas quiso decir: dia, dial, dias, diay, dima
 
 Linea 2, 'at' no esta en el diccionario.
-Quizas quiso decir: ta, et, ad, ah, aj
+Quizas quiso decir: et, ad, ah, aj, al
 
 Linea 2, 'laoreet' no esta en el diccionario.
 Quizas quiso decir: loree, loreen, lorees, la-oree, loree
@@ -67,11 +67,8 @@ Quizas quiso decir: soda-les, codales, modales, nodales, podales
 Linea 3, 'rutrum' no esta en el diccionario.
 Quizas quiso decir: rumrum, rumrum, rurru, quorum, rumrum
 
-Linea 4, 'in' no esta en el diccionario.
-Quizas quiso decir: ni, en, un, id, ir
-
 Linea 4, 'sollicitudin' no esta en el diccionario.
-Quizas quiso decir: solicitud-in, solicitud-in, solicitud-in, solicitud, solicitud
+Quizas quiso decir: solicitud-in, solicitud-in, solicitud-in, solicitud, solicita-din
 
 Linea 4, 'eleifend' no esta en el diccionario.
 Quizas quiso decir: lei-fenda, lei-fendi, eliden, eligen, elijen
@@ -95,7 +92,7 @@ Linea 5, 'dictum' no esta en el diccionario.
 Quizas quiso decir: ictus, dicta, dicte, dicto, dicta
 
 Linea 6, 'phasellus' no esta en el diccionario.
-Quizas quiso decir: ha-sellas, has-ellas, ha-selles, has-elles, ha-sellos
+Quizas quiso decir: ha-sellas, has-ellas, ha-selles, has-elles, paellas
 
 Linea 6, 'placerat' no esta en el diccionario.
 Quizas quiso decir: placera, placeran, placeras, lacera, lacerad
@@ -103,14 +100,11 @@ Quizas quiso decir: placera, placeran, placeras, lacera, lacerad
 Linea 6, 'faucibus' no esta en el diccionario.
 Quizas quiso decir: uci-bus, luci-bus, autobus, auca-bus, autobus
 
-Linea 7, 'in' no esta en el diccionario.
-Quizas quiso decir: ni, en, un, id, ir
-
 Linea 7, 'hac' no esta en el diccionario.
 Quizas quiso decir: ha, tac, han, hao, has
 
 Linea 7, 'habitasse' no esta en el diccionario.
-Quizas quiso decir: habitas-se, habitase, habitase, habitases, habitaste
+Quizas quiso decir: habitas-se, habitase, habitase, habitaste, habitases
 
 Linea 7, 'dictumst' no esta en el diccionario.
 Quizas quiso decir: ictus, ictus, dictas, dictes, dictas
@@ -125,7 +119,7 @@ Linea 8, 'lorem' no esta en el diccionario.
 Quizas quiso decir: lorea, loree, loreo, lores, ore
 
 Linea 8, 'nec' no esta en el diccionario.
-Quizas quiso decir: ne, nea, nen, neo, ce
+Quizas quiso decir: ne, nea, nen, neo, oc
 
 Linea 8, 'erat' no esta en el diccionario.
 Quizas quiso decir: era, erad, eral, eran, erar

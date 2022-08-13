@@ -15,7 +15,6 @@ void print_text(Glist *corrections, char *path) {
   while(node) {
     corr_fprintf(node -> data, f);
     node = pass_destroy_node(node, corr_dest);
-    //node=node->next;
   }
   free(output);
   fclose(f);
